@@ -268,6 +268,8 @@ enum PIPViewCorner {
   topRight,
   bottomLeft,
   bottomRight,
+  ortasol,
+  ortasag
 }
 
 class _CornerDistance {
@@ -327,6 +329,10 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
         return Offset(left, bottom);
       case PIPViewCorner.bottomRight:
         return Offset(right, bottom);
+      case PIPViewCorner.ortasol:
+        return Offset(55,200);
+      case PIPViewCorner.ortasag:
+        return Offset(55,200);
       default:
         throw UnimplementedError();
     }

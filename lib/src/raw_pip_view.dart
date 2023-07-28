@@ -312,13 +312,16 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
   required EdgeInsets windowPadding,
 }) {
   Offset getOffsetForCorner(PIPViewCorner corner) {
-    final spacing = 16;
+    final spacing = 10;
     final left = spacing + windowPadding.left;
-    final top = spacing + windowPadding.top;
+    final top = spacing + 54 + windowPadding.top;
     final right =
         spaceSize.width - widgetSize.width - windowPadding.right - spacing;
-    final bottom =
-        spaceSize.height - widgetSize.height - windowPadding.bottom - spacing;
+    final bottom = spaceSize.height -
+        widgetSize.height -
+        windowPadding.bottom -
+        spacing -
+        70;
 
     switch (corner) {
       case PIPViewCorner.topLeft:
@@ -330,9 +333,9 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
       case PIPViewCorner.bottomRight:
         return Offset(right, bottom);
       case PIPViewCorner.ortasol:
-        return Offset(55,200);
+        return Offset(right, 400);
       case PIPViewCorner.ortasag:
-        return Offset(55,200);
+        return Offset(left, 400);
       default:
         throw UnimplementedError();
     }

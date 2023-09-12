@@ -31,7 +31,7 @@ class PIPView extends StatefulWidget {
 
 class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
   Widget? _bottomWidget;
-  String? newRoomHash;
+  String? newRoomHashx;
   void presentBelow(Widget widget) {
     dismissKeyboard(context);
     setState(() => _bottomWidget = widget);
@@ -43,7 +43,7 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
   }
 
   void stopDispose(String newRoomHash) {
-    setState(() => newRoomHash = newRoomHash);
+    setState(() => newRoomHashx = newRoomHash);
   }
 
   @override
@@ -51,7 +51,7 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
     final isFloating = _bottomWidget != null;
 
     setState(() {
-      final newRoomHash2 = newRoomHash;
+      final newRoomHash2 = newRoomHashx;
     });
     print(newRoomHash2);
     return RawPIPView(

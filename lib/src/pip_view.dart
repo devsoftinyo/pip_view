@@ -42,7 +42,7 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
     setState(() => _bottomWidget = null);
   }
 
-  void stopDispose(String newRoomHash) {
+  void stopDispose(String? newRoomHash) {
     setState(() => newRoomHashx = newRoomHash);
   }
 

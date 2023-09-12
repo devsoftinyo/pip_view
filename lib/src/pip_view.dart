@@ -50,9 +50,8 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final isFloating = _bottomWidget != null;
 
-    setState(() {
-      final newRoomHash2 = newRoomHashx;
-    });
+    final newRoomHash2 = newRoomHashx;
+
     print(newRoomHash2);
     return RawPIPView(
       avoidKeyboard: widget.avoidKeyboard,

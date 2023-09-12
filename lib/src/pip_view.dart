@@ -9,8 +9,8 @@ class PIPView extends StatefulWidget {
   final double? floatingHeight;
   final bool avoidKeyboard;
 
-  final Widget Function(BuildContext context, bool isFloating, bool isDispose)
-      builder;
+  final Widget Function(
+      BuildContext context, bool isFloating, String? newRoomHash) builder;
 
   const PIPView({
     Key? key,
@@ -31,7 +31,7 @@ class PIPView extends StatefulWidget {
 
 class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
   Widget? _bottomWidget;
-  bool? isDisposed;
+  String? newRoomHash;
   void presentBelow(Widget widget) {
     dismissKeyboard(context);
     setState(() => _bottomWidget = widget);
@@ -42,14 +42,18 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
     setState(() => _bottomWidget = null);
   }
 
-  void stopDispose() {
-    setState(() => isDisposed = true);
+  void stopDispose(String newRoomHash) {
+    setState(() => newRoomHash = newRoomHash);
   }
 
   @override
   Widget build(BuildContext context) {
     final isFloating = _bottomWidget != null;
-    final isDispose = isDisposed != null;
+
+    setState(() {
+      final newRoomHash2 = newRoomHash;
+    });
+    print(newRoomHash2);
     return RawPIPView(
       avoidKeyboard: widget.avoidKeyboard,
       bottomWidget: isFloating
@@ -63,7 +67,8 @@ class PIPViewState extends State<PIPView> with TickerProviderStateMixin {
       topWidget: IgnorePointer(
         ignoring: isFloating,
         child: Builder(
-          builder: (context) => widget.builder(context, isFloating, isDispose),
+          builder: (context) =>
+              widget.builder(context, isFloating, newRoomHash2),
         ),
       ),
       floatingHeight: widget.floatingHeight,

@@ -322,7 +322,7 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
         windowPadding.bottom -
         spacing -
         70;
-
+  
     switch (corner) {
       case PIPViewCorner.topLeft:
         return Offset(left, top);
@@ -333,9 +333,9 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
       case PIPViewCorner.bottomRight:
         return Offset(right, bottom);
       case PIPViewCorner.ortasol:
-        return Offset(right, 400);
+        return Offset(right, windowSize.height / 2);
       case PIPViewCorner.ortasag:
-        return Offset(left, 400);
+        return Offset(left, windowSize.height / 2);
       default:
         throw UnimplementedError();
     }
